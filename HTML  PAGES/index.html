@@ -3,33 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Home</title>
+    <title>Welcome to Limkokwing Student Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .banner.active {
+            opacity: 1;
+        }
+
+        .banner-content {
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-content h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .banner-content p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: #ff6347;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff4500;
+        }
+
+        .nav-dots {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 5px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .dot.active {
+            opacity: 1;
+            background-color: #ff6347;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome To Community Event Management Platform </h1>
-       
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="registration.html">Register</a>
-            <a href="dashboard.html">User Dashboard</a>
-            <a href="admin.html">Admin Dashboard</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        
-    </header>
-    <div class="container">
-        <h2>Upcoming Events</h2>
-        <div class="grid">
-            <img src="download (2).jpeg" alt="Event 1">
-            <img src="images (2).jpeg" alt="images (2).jpeg">
-            <img src="images (3).jpeg" alt="Event 3">
+
+    <div class="banner-container">
+        <div class="banner active" style="background-image: url('banner1.jpg');">
+            <div class="banner-content">
+                <h1>Welcome to Our Campus</h1>
+                <p>Discover endless opportunities with us!</p>
+                <a href="https://www.example.com" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <div class="banner" style="background-image: url('banner2.jpg');">
+            <div class="banner-content">
+                <h1>Innovate and Create with us</h1>
+                <p>Unleash your creativity and ideas here.</p>
+                <a href="https://www.example.com" class="btn">Get Started</a>
+            </div>
+        </div>
+
+        <div class="banner" style="background-image: url('banner3.jpg');">
+            <div class="banner-content">
+                <h1>Join Our Community</h1>
+                <p>Connect with like-minded individuals today.</p>
+                <a href="https://www.example.com" class="btn">Sign Up Now</a>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="nav-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Events Inc.</p>
-    </footer>
+
+    <script>
+        // JavaScript to rotate banners and control navigation dots
+        let currentBanner = 0;
+        const banners = document.querySelectorAll('.banner');
+        const dots = document.querySelectorAll('.dot');
+        const totalBanners = banners.length;
+
+        function changeBanner(index) {
+            // Remove 'active' class from current banner and dot
+            banners[currentBanner].classList.remove('active');
+            dots[currentBanner].classList.remove('active');
+
+            // Update the current banner
+            currentBanner = index;
+
+            // Add 'active' class to new banner and dot
+            banners[currentBanner].classList.add('active');
+            dots[currentBanner].classList.add('active');
+        }
+
+        // Auto-rotate banners every 5 seconds
+        setInterval(() => {
+            const nextBanner = (currentBanner + 1) % totalBanners;
+            changeBanner(nextBanner);
+        }, 5000);
+
+        // Click on dots to change banners
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                changeBanner(index);
+            });
+        });
+    </script>
+
 </body>
 </html>
