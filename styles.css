@@ -5,15 +5,17 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    background-color: #f0f8ff; /* Light background for contrast */
 }
 
 header {
-    background: #4CAF50;
+    background: linear-gradient(90deg, #4CAF50, #81C784); /* Gradient header */
     color: white;
-    padding: 15px 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 nav {
@@ -23,7 +25,14 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #4CAF50;
+    color: #ffffff; /* White text for links */
+    padding: 8px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease; /* Smooth background change */
+}
+
+nav a:hover {
+    background-color: #388E3C; /* Darker green on hover */
 }
 
 .container {
@@ -35,14 +44,23 @@ nav a {
 
 footer {
     text-align: center;
-    padding: 10px;
-    background: #f4f4f4;
+    padding: 15px;
+    background: #4CAF50; /* Footer background same as header */
+    color: white; /* White text */
     margin-top: 20px;
+    border-top: 4px solid #388E3C; /* Top border for emphasis */
 }
 
 img {
     max-width: 100%;
     height: auto;
+    border: 2px solid #4CAF50; /* Green border around images */
+    border-radius: 5px; /* Rounded corners for images */
+    transition: transform 0.3s; /* Smooth scale effect on hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 @media (min-width: 600px) {
@@ -51,4 +69,18 @@ img {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
+}
+
+/* Additional styles for sections or cards */
+.section {
+    background: #ffffff; /* White background for sections */
+    border: 2px solid #4CAF50; /* Green border for sections */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    transition: transform 0.3s; /* Smooth scale effect on hover */
+}
+
+.section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
