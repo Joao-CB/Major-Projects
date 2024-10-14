@@ -38,6 +38,25 @@
                 <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\download (2).jpeg" alt="Limkokwing Take a Look">
             </div>
         </div>
+        <div>
+            <script>
+                let index = 0;
+                const slides = document.querySelector('.slides');
+                const totalSlides = document.querySelectorAll('.slide').length;
+            
+                function showNextSlide() {
+                    index++;
+                    if (index === totalSlides) {
+                        index = 0; // Reset to first slide after the last slide
+                    }
+                    slides.style.transform = `translateX(-${index * 100}%)`;
+                }
+            
+                // Automatically switch slides every 3 seconds
+                setInterval(showNextSlide, 3000);
+            </script>
+            
+        </div>
     </div>
     
 
