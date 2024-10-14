@@ -19,8 +19,17 @@
             <a href="contact.html">Contact</a>
         </nav>
         
-        <h2>Eita Manfried @ <a href="tel:+264814916590">+264 81 491 6590</a> <button class="call-button">Call</button><button class="WhatsApp">WhatsApp</button></h2>
-        <h2>Dun Charmarry @ <a href="tel:+264852648630">+264 85 264 8630</a> <button class="call-button">Call</button><button class="WhatsApp">WhatsApp</button></h2>
+        <h2>Eita Manfried @ 
+            <a href="tel:+264814916590">+264 81 491 6590</a>
+            <button class="call-button" onclick="window.location.href='tel:+264814916590'">Call</button>
+            <button class="whatsapp-button" onclick="window.open('https://wa.me/264814916590')">WhatsApp</button>
+        </h2>
+        
+        <h2>Dun Charmarry @ 
+            <a href="tel:+264852648630">+264 85 264 8630</a>
+            <button class="call-button" onclick="window.location.href='tel:+264852648630'">Call</button>
+            <button class="whatsapp-button" onclick="window.open('https://wa.me/264852648630')">WhatsApp</button>
+        </h2>
     </header>
     
     <div class="container">
@@ -35,8 +44,8 @@
 
     <style>
         /* Styling for the call button */
-        .call-button {
-            background-color: #4CAF50; /* Green background */
+        .call-button, .whatsapp-button {
+            background-color: #4CAF50; /* Green background for call button */
             color: white; /* White text */
             border: none; /* No border */
             padding: 10px 15px; /* Padding for the button */
@@ -50,8 +59,17 @@
             transition: background-color 0.3s ease; /* Smooth background color change */
         }
 
-        .call-button:hover {
+        .call-button:hover, .whatsapp-button:hover {
             background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Optional: Different color for WhatsApp button */
+        .whatsapp-button {
+            background-color: #25D366; /* WhatsApp green */
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #1DAF5D; /* Darker WhatsApp green on hover */
         }
     </style>
 </body>
