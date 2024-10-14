@@ -8,11 +8,11 @@ body {
 
 /* Carousel container styling */
 .carousel {
-    width: 50%;
-    max-width: 50%;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
-    height: 500px;
+    height: 300px;
 }
 
 /* Slide container */
@@ -32,7 +32,7 @@ body {
 /* Image styling */
 .slide img {
     width: 50%;
-    height: 200px; /* Fixed height for banner */
+    height: 500px; /* Fixed height for banner */
     object-fit: cover; /* Scale image to cover the entire slide area */
     -webkit-backface-visibility: hidden; /* Improves rendering on some browsers */
 }
