@@ -228,7 +228,7 @@
         <!-- Registration Form Section -->
         <section class="registration-form">
             <h3>Registration Form</h3>
-            <form id="regForm">
+            <form id="regForm" action="/register" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -264,11 +264,26 @@
             if (name && email && eventSelected) {
                 // Here, you can process the registration, e.g., send data to the server
                 
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
-
-                // Clear form fields
-                document.getElementById('regForm').reset();
+                // Use Fetch API to send data to the server
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, event: eventSelected }),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('successMessage').style.display = 'block';
+                        document.getElementById('regForm').reset();
+                    } else {
+                        alert('Registration failed. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                });
             } else {
                 alert('Please fill all fields');
             }
