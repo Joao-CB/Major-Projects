@@ -226,49 +226,7 @@
                 }
             }
         }
-        // Load events from local storage on page load
-window.onload = function() {
-    const events = JSON.parse(localStorage.getItem('events')) || [];
-    events.forEach(eventName => addEventToList(eventName));
-}
-
-// Modify addEventToList to save to local storage
-function addEventToList(eventName) {
-    const eventList = document.getElementById('eventList');
-    const li = document.createElement('li');
-    li.innerHTML = `${eventName} - Actions: <button onclick="editEvent('${eventName}')">Edit</button> | <button onclick="deleteEvent('${eventName}')">Delete</button>`;
-    eventList.appendChild(li);
-
-    // Save to local storage
-    saveEventsToLocalStorage();
-}
-
-// Modify deleteEvent to save changes to local storage
-function deleteEvent(eventName) {
-    const eventList = document.getElementById('eventList');
-    const listItems = eventList.getElementsByTagName('li');
-    for (let item of listItems) {
-        if (item.innerText.includes(eventName)) {
-            eventList.removeChild(item);
-            break; // Exit the loop once the event is found and removed
-        }
-    }
-    // Save to local storage
-    saveEventsToLocalStorage();
-}
-
-// Save all events to local storage
-function saveEventsToLocalStorage() {
-    const eventList = document.getElementById('eventList');
-    const listItems = eventList.getElementsByTagName('li');
-    const events = [];
-    for (let item of listItems) {
-        const eventName = item.innerText.split(' - ')[0]; // Get event name from the li text
-        events.push(eventName);
-    }
-    localStorage.setItem('events', JSON.stringify(events));
-}
-
+        
     </script>
 </body>
 </html>
