@@ -31,7 +31,7 @@ body {
 
 /* Image styling */
 .slide img {
-    width: 50%;
+    width: 100%;
     height: 500px; /* Fixed height for banner */
     object-fit: cover; /* Scale image to cover the entire slide area */
     -webkit-backface-visibility: hidden; /* Improves rendering on some browsers */
