@@ -1,0 +1,74 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Text color */
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styles */
+.section-style {
+    background-color: #fff; /* White background */
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a lifted effect */
+}
+
+.section-style h3 {
+    color: #4CAF50; /* Green headings */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.section-style p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666; /* Lighter text color for paragraph */
+}
+
+/* Footer styling */
+footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Hover effect for headings */
+.section-style h3:hover {
+    color: #45a049; /* Slightly darker green on hover */
+    transition: color 0.3s ease;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .section-style {
+        padding: 20px;
+    }
+
+    .section-style h3 {
+        font-size: 1.5rem;
+    }
+
+    .section-style p {
+        font-size: 0.9rem;
+    }
+}
