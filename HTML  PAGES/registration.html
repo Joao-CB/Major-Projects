@@ -18,8 +18,9 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <div class="container">
-        <form>
+        <form id="registrationForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -28,13 +29,31 @@
             <select id="event" name="event" required>
                 <option value="event1">Event 1</option>
                 <option value="event2">Event 2</option>
-                <option value="event3">Event 3</option>
             </select>
             <button type="submit">Register</button>
         </form>
+        <div id="message" style="display:none; margin-top: 20px; color: green;"></div> <!-- Success message -->
     </div>
+
     <footer>
         <p>&copy; 2024 Events Inc.</p>
     </footer>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const eventSelected = document.getElementById('event').value;
+
+            // Display success message
+            const messageDiv = document.getElementById('message');
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = `Thank you, ${name}! You have successfully registered for ${eventSelected}.`;
+        });
+    </script>
 </body>
 </html>
