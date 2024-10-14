@@ -9,16 +9,16 @@ body {
 /* Carousel container styling */
 .carousel {
     width: 100%;
-    max-width: 100%; /* Make sure the carousel is full width */
-    overflow: hidden; /* Hide anything outside the container */
+    max-width: 100%;
+    overflow: hidden;
     position: relative;
-    height: 500px; /* Fixed height for banner */
+    height: 500px;
 }
 
 /* Slide container */
 .slides {
     display: flex;
-    width: 300%; /* Since we have 3 slides */
+    width: 300%; /* Width based on number of slides */
     height: 100%;
     transition: transform 0.8s ease; /* Smooth sliding effect */
 }
@@ -32,8 +32,9 @@ body {
 /* Image styling */
 .slide img {
     width: 100%;
-    height: 500px; /* Ensure images are full height and width of the container */
-    object-fit: cover; /* Scale image to fit the container */
+    height: 500px; /* Fixed height for banner */
+    object-fit: cover; /* Scale image to cover the entire slide area */
+    -webkit-backface-visibility: hidden; /* Improves rendering on some browsers */
 }
 
 /* Optional: Add dots for indication */
