@@ -1,0 +1,59 @@
+/* General styling for the page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Carousel container styling */
+.carousel {
+    width: 100%;
+    max-width: 100%; /* Make sure the carousel is full width */
+    overflow: hidden; /* Hide anything outside the container */
+    position: relative;
+    height: 500px; /* Fixed height for banner */
+}
+
+/* Slide container */
+.slides {
+    display: flex;
+    width: 300%; /* Since we have 3 slides */
+    height: 100%;
+    transition: transform 0.8s ease; /* Smooth sliding effect */
+}
+
+/* Individual slide */
+.slide {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+/* Image styling */
+.slide img {
+    width: 100%;
+    height: 500px; /* Ensure images are full height and width of the container */
+    object-fit: cover; /* Scale image to fit the container */
+}
+
+/* Optional: Add dots for indication */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.carousel-dots button {
+    border: none;
+    background: #ddd;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-dots button.active {
+    background: #333;
+}
