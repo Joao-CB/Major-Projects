@@ -8,7 +8,7 @@ body {
 
 /* Carousel container styling */
 .carousel {
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     overflow: hidden;
     position: relative;
