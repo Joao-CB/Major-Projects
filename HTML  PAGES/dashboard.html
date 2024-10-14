@@ -18,15 +18,64 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <div class="container">
         <h2>Your Registrations</h2>
-        <ul>
-            <li>Event 1 - Status: Confirmed</li>
-            <li>Event 2 - Status: Pending</li>
-        </ul>
+        <ul id="registrationList"></ul>
+        <h3>Add New Registration</h3>
+        <form id="registrationForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" required>
+            <label for="eventStatus">Status:</label>
+            <select id="eventStatus" required>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Pending">Pending</option>
+            </select>
+            <button type="submit">Add Registration</button>
+        </form>
     </div>
+
     <footer>
         <p>&copy; 2024 Events Inc.</p>
     </footer>
+
+    <script>
+        // Sample registrations data
+        const registrations = [
+            { name: "Event 1", status: "Confirmed" },
+            { name: "Event 2", status: "Pending" }
+        ];
+
+        const registrationList = document.getElementById('registrationList');
+        const registrationForm = document.getElementById('registrationForm');
+        const eventNameInput = document.getElementById('eventName');
+        const eventStatusInput = document.getElementById('eventStatus');
+
+        // Function to display registrations
+        function displayRegistrations() {
+            registrationList.innerHTML = ""; // Clear the list
+            registrations.forEach((registration) => {
+                const li = document.createElement('li');
+                li.textContent = `${registration.name} - Status: ${registration.status}`;
+                registrationList.appendChild(li);
+            });
+        }
+
+        // Add new registration
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+            const newRegistration = {
+                name: eventNameInput.value,
+                status: eventStatusInput.value
+            };
+            registrations.push(newRegistration); // Add to registrations array
+            eventNameInput.value = ""; // Clear input field
+            eventStatusInput.value = "Confirmed"; // Reset to default status
+            displayRegistrations(); // Update the displayed list
+        });
+
+        // Initial display of registrations
+        displayRegistrations();
+    </script>
 </body>
 </html>
