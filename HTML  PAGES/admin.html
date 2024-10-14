@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styless.css">
     <title>Admin Dashboard</title>
+    <style>
+        /* Basic styles for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,14 +54,92 @@
     </header>
     <div class="container">
         <h2>Manage Events</h2>
-        <button>Add New Event</button>
-        <ul>
-            <li>Event 1 - Actions: Edit | Delete</li>
-            <li>Event 2 - Actions: Edit | Delete</li>
+        <button id="addEventBtn">Add New Event</button>
+        <ul id="eventList">
+            <li>Event 1 - Actions: <button onclick="editEvent('Event 1')">Edit</button> | <button onclick="deleteEvent('Event 1')">Delete</button></li>
+            <li>Event 2 - Actions: <button onclick="editEvent('Event 2')">Edit</button> | <button onclick="deleteEvent('Event 2')">Delete</button></li>
         </ul>
     </div>
+    
+    <!-- The Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Add New Event</h2>
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" required>
+            <button id="saveEventBtn">Save Event</button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Events Inc.</p>
     </footer>
+
+    <script>
+        // Show the modal
+        document.getElementById('addEventBtn').onclick = function() {
+            document.getElementById('eventModal').style.display = 'block';
+        }
+
+        // Close the modal
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        // Close the modal if clicked outside of it
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('eventModal')) {
+                document.getElementById('eventModal').style.display = 'none';
+            }
+        }
+
+        // Handle saving a new event
+        document.getElementById('saveEventBtn').onclick = function() {
+            const eventName = document.getElementById('eventName').value;
+            if (eventName) {
+                addEventToList(eventName);
+                document.getElementById('eventName').value = ''; // Clear input
+                document.getElementById('eventModal').style.display = 'none'; // Close modal
+            } else {
+                alert('Please enter an event name.');
+            }
+        }
+
+        // Function to add the event to the list
+        function addEventToList(eventName) {
+            const eventList = document.getElementById('eventList');
+            const li = document.createElement('li');
+            li.innerHTML = `${eventName} - Actions: <button onclick="editEvent('${eventName}')">Edit</button> | <button onclick="deleteEvent('${eventName}')">Delete</button>`;
+            eventList.appendChild(li);
+        }
+
+        // Function to edit an event
+        function editEvent(eventName) {
+            const newEventName = prompt('Edit Event Name:', eventName);
+            if (newEventName) {
+                // Update the event in the list
+                const eventList = document.getElementById('eventList');
+                const listItems = eventList.getElementsByTagName('li');
+                for (let item of listItems) {
+                    if (item.innerText.includes(eventName)) {
+                        item.innerHTML = `${newEventName} - Actions: <button onclick="editEvent('${newEventName}')">Edit</button> | <button onclick="deleteEvent('${newEventName}')">Delete</button>`;
+                    }
+                }
+            }
+        }
+
+        // Function to delete an event
+        function deleteEvent(eventName) {
+            const eventList = document.getElementById('eventList');
+            const listItems = eventList.getElementsByTagName('li');
+            for (let item of listItems) {
+                if (item.innerText.includes(eventName)) {
+                    eventList.removeChild(item);
+                    break; // Exit the loop once the event is found and removed
+                }
+            }
+        }
+    </script>
 </body>
 </html>
