@@ -47,7 +47,7 @@ body {
 }
 
 .carousel-dots button {
-    border: none;
+    border: crimson;
     background: #ddd;
     padding: 5px;
     margin: 0 5px;
