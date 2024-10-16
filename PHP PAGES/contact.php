@@ -29,7 +29,7 @@
 <?php
 // Database connection
 $host = 'localhost';  // Change as per your setup
-$dbname = '';  // Change to your database name
+$dbname = 'verner';  // Change to your database name
 $username = 'root';  // Your MySQL username
 $password = '';  // Your MySQL password
 
