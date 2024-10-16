@@ -143,4 +143,20 @@ button:hover {
     .container {
         padding: 10px;
     }
+
+    .apply-button {
+        background-color: #4CAF50; /* Green background */
+        color: white; /* White text */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s ease-in-out;
+    }
+    
+    .apply-button:hover {
+        background-color: #45a049; /* Darker green on hover */
+        transform: scale(1.05); /* Small zoom on hover */
+    }
+    
 }
