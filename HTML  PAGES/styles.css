@@ -1,11 +1,9 @@
-/* General Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Body styling */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -13,94 +11,32 @@ body {
     color: #333; /* Text color */
 }
 
-/* Header Styling */
 header {
-    background: #1976d2; /* Header background color */
+    background: #4e4f50; /* Header background color */
     color: white;
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Navigation (Taskbar) Styling */
 nav {
-    display: flex;
-    justify-content: center;
-    background-color: #4CAF50; /* Solid green background */
-    padding: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Depth for the taskbar */
-    position: sticky; /* Makes the nav stick to the top */
-    top: 0;
-    z-index: 1000; /* Ensure it stays above other elements */
+    margin: 20px 0;
 }
 
-/* Taskbar Links */
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff; /* White link color */
-    background: #f57f17; /* Bright button-like background */
-    padding: 10px 20px;
-    border-radius: 25px; /* More rounded buttons */
-    transition: background 0.3s, transform 0.2s ease-in-out;
+    color: #fff; /* Link color */
+    background: #4CAF50; /* Button-like background */
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s; /* Smooth transition */
 }
 
 nav a:hover {
-    background: #ff9800; /* Darker orange on hover */
-    transform: scale(1.05); /* Small zoom on hover */
+    background: #45a049; /* Darker green on hover */
 }
 
-/* Hamburger menu styling for mobile */
-nav .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-nav .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: -100%;
-        width: 100%;
-        background-color: #4CAF50;
-        transition: left 0.3s;
-        z-index: 999;
-    }
-
-    nav ul li {
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    nav ul.open {
-        left: 0;
-    }
-
-    nav .hamburger {
-        display: flex;
-    }
-}
-
-/* Container Styling */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -109,20 +45,32 @@ nav ul li {
     background: #fff; /* White background for container */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    margin-top: 20px; /* Space above the container */
 }
 
-/* Footer Styling */
 footer {
     text-align: center;
     padding: 15px;
-    background: #1976d2; /* Footer background color */
+    background: #424344; /* Footer background color */
     color: white; /* Footer text color */
     margin-top: 20px;
     border-radius: 8px; /* Rounded corners */
 }
 
-/* Button Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+@media (min-width: 600px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Additional Styles for Buttons */
 button {
     background-color: #f44336; /* Red background */
     color: white; /* Text color */
@@ -130,33 +78,259 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease-in-out;
+    transition: background 0.3s;
 }
 
 button:hover {
     background-color: #c62828; /* Darker red on hover */
-    transform: scale(1.05); /* Small zoom on hover */
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Responsive Adjustments */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4; /* Light gray background */
+    color: #333; /* Text color */
+}
+
+header {
+    background: #3c3c3d; /* Green header */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff; /* White links */
+    background: #333; /* Dark background for links */
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+nav a:hover {
+    background: #555; /* Darker on hover */
+}
+
+.banner {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 2.5rem; /* Large heading */
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2rem; /* Subheading */
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0a0909; /* Button background */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background: #555; /* Darker on hover */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white; /* White background for container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-top: 20px; /* Space above the container */
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h3 {
+    color: #4CAF50; /* Green heading */
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #4CAF50; /* Footer background */
+    color: white; /* Footer text color */
+    margin-top: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+/* General styling for the page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Carousel container styling */
+.carousel {
+    width: 45%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+}
+
+/* Slide container */
+.slides {
+    display: flex;
+    width: 300%; /* Width based on number of slides */
+    height: 100%;
+    transition: transform 0.8s ease; /* Smooth sliding effect */
+}
+
+/* Individual slide */
+.slide {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+/* Image styling */
+.slide img {
+    width: 45%;
+    height: 500px; /* Fixed height for banner */
+    object-fit: cover; /* Scale image to cover the entire slide area */
+    -webkit-backface-visibility: hidden; /* Improves rendering on some browsers */
+}
+
+/* Optional: Add dots for indication */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.carousel-dots button {
+    border: crimson;
+    background: #ddd;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-dots button.active {
+    background: #f10404;
+}
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Light background to complement banner colors */
+    color: #333; /* Default text color */
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styles - Banners */
+.section-style {
+    padding: 60px 30px; /* Larger padding for banner feel */
+    margin-bottom: 20px;
+    color: white; /* White text for banners */
+    text-align: center; /* Center text for banner effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly heavier shadow for banners */
+}
+
+/* Background colors for different sections */
+#about {
+    background: linear-gradient(135deg, #eb0a0a, #66bb6a); /* Green gradient banner */
+}
+
+#courses {
+    background: linear-gradient(135deg, #2196F3, #42a5f5); /* Blue gradient banner */
+}
+
+#admissions {
+    background: linear-gradient(135deg, #ff9800, #ffa726); /* Orange gradient banner */
+}
+
+/* Section heading styles */
+.section-style h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Capitalize for impact */
+    letter-spacing: 1px; /* Adds space between letters */
+    font-weight: bold;
+}
+
+/* Paragraph styles within sections */
+.section-style p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f1f1f1; /* Slightly lighter text color */
+}
+
+/* Footer styling */
+footer {
+    background-color: #222; /* Very dark background */
+    color: #ddd; /* Light gray text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Hover effect for headings */
+.section-style h3:hover {
+    color: #f1f1f1; /* Lighter text on hover */
+    transition: color 0.3s ease;
+}
+
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
     }
 
-    .apply-button {
-        background-color: #4CAF50; /* Green background */
-        color: white; /* White text */
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s ease-in-out;
+    .section-style {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
     }
-    
-    .apply-button:hover {
-        background-color: #45a049; /* Darker green on hover */
-        transform: scale(1.05); /* Small zoom on hover */
+
+    .section-style h3 {
+        font-size: 1.8rem;
     }
-    
+
+    .section-style p {
+        font-size: 1rem;
+    }
 }
