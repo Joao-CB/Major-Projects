@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="contact" href="contact.php">
     <title>Contact Us</title>
 </head>
-<body>
-    <header>
-        <h1>Contact Us</h1>
-        
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="registration.html">Register</a>
-            <a href="dashboard.html">User Dashboard</a>
-            <a href="admin.html">Admin Dashboard</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        
-        
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Add New Event</h2>
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" required>
+        <button id="saveEventBtn">Save Event</button>
     </div>
-    
-    <footer>
-        <p>&copy; 2024 Limkokwing University Namibia. All Rights Reserved.</p>
-    </footer>
+<body>
 
-    
+<h1>Contact Us</h1>
+
+<form action="contact.php" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" required></textarea><br><br>
+
+    <input type="submit" value="Send">
+</form>
+
 </body>
 </html>
