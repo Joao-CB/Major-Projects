@@ -8,22 +8,14 @@
 </head>
 <body>
     
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="registration.html">Register</a>
-        <a href="dashboard.html">User Dashboard</a>
-        <a href="admin.html">Admin Dashboard</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-    </nav>
+    
     <h2>Register</h2>
-    <form action="register.php" method="POST">
+    <form action="login.php" method="POST">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
+        <input type="text" id="username" name="username" aria-label="Username" required><br>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+        <input type="password" id="password" name="password" aria-label="Password" required><br>
 
         <input type="submit" value="Register">
     </form>

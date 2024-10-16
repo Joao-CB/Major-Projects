@@ -1,138 +1,336 @@
-/* General Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Body styling */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background: linear-gradient(to right, #ff6f61, #6a82fb); /* Bright gradient background */
+    background: linear-gradient(to right, #e0f7fa, #ffeb3b); /* Light gradient background */
     color: #333; /* Text color */
-    height: 100vh; /* Full height for the card effect */
-    overflow: hidden; /* Prevent scrolling */
-    position: relative; /* Position relative for the menu button */
 }
 
-/* Header Styling */
 header {
-    background: rgba(25, 118, 210, 0.8); /* Semi-transparent header background */
+    background: #4e4f50; /* Header background color */
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    border-bottom: 5px solid #ffeb3b; /* Accent border for header */
-    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Menu Button Styling */
-.menu-button {
-    position: absolute; /* Position it at the top right corner */
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-    color: #333; /* Text color */
-    padding: 10px 15px; /* Padding for button */
-    border: none;
-    border-radius: 50%; /* Round button */
-    font-size: 24px; /* Font size for button */
-    cursor: pointer; /* Pointer on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: background 0.3s; /* Transition effect */
+nav {
+    margin: 20px 0;
 }
 
-.menu-button:hover {
-    background: rgba(255, 255, 255, 0.8); /* Change background on hover */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff; /* Link color */
+    background: #4CAF50; /* Button-like background */
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s; /* Smooth transition */
 }
 
-/* Full-Page Card Styling */
-.full-page-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    width: 100%; /* Full width */
-    height: calc(100vh - 80px); /* Full height minus header height */
-    background-color: #ffffff; /* Card background */
-    border-radius: 10px; /* Rounded corners for card */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    padding: 30px; /* Padding for the card */
-    position: relative; /* For positioning child elements */
-    overflow: hidden; /* Prevent overflow */
+nav a:hover {
+    background: #45a049; /* Darker green on hover */
 }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Space between form elements */
-    width: 100%; /* Full width for form */
-}
-
-/* Input Fields */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 15px;
-    border: 2px solid #4CAF50; /* Green border */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #fff; /* White background for container */
     border-radius: 8px; /* Rounded corners */
-    font-size: 16px; /* Font size for inputs */
-    width: 100%; /* Full width */
-    transition: border 0.3s, box-shadow 0.3s; /* Transition effects */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #1976d2; /* Highlight border on focus */
-    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5); /* Add glow effect */
-}
-
-/* Button Styling */
-button {
-    background-color: #ff4081; /* Pink background */
-    color: white; /* Text color */
-    padding: 15px 30px; /* Slightly larger padding for better usability */
-    border: none;
-    border-radius: 25px; /* More rounded buttons */
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease-in-out; /* Transition effects */
-    font-size: 16px; /* Increased font size for better readability */
-    width: 100%; /* Full width buttons */
-}
-
-button:hover {
-    background-color: #c60055; /* Darker pink on hover */
-    transform: scale(1.05); /* Small zoom on hover */
-}
-
-/* Footer Styling */
 footer {
     text-align: center;
     padding: 15px;
-    background: rgba(25, 118, 210, 0.8); /* Semi-transparent footer background */
+    background: #424344; /* Footer background color */
     color: white; /* Footer text color */
-    position: absolute; /* Position footer at the bottom */
-    bottom: 0; /* Align to bottom */
-    left: 0; /* Align to left */
-    right: 0; /* Align to right */
+    margin-top: 20px;
     border-radius: 8px; /* Rounded corners */
 }
 
-/* Responsive Adjustments */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+@media (min-width: 600px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Additional Styles for Buttons */
+button {
+    background-color: #f44336; /* Red background */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4; /* Light gray background */
+    color: #333; /* Text color */
+}
+
+header {
+    background: #3c3c3d; /* Green header */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff; /* White links */
+    background: #333; /* Dark background for links */
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+nav a:hover {
+    background: #555; /* Darker on hover */
+}
+
+.banner {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 2.5rem; /* Large heading */
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2rem; /* Subheading */
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0a0909; /* Button background */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background: #555; /* Darker on hover */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white; /* White background for container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-top: 20px; /* Space above the container */
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h3 {
+    color: #4CAF50; /* Green heading */
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #4CAF50; /* Footer background */
+    color: white; /* Footer text color */
+    margin-top: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+/* General styling for the page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Carousel container styling */
+.carousel {
+    width: 45%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+}
+
+/* Slide container */
+.slides {
+    display: flex;
+    width: 300%; /* Width based on number of slides */
+    height: 100%;
+    transition: transform 0.8s ease; /* Smooth sliding effect */
+}
+
+/* Individual slide */
+.slide {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+/* Image styling */
+.slide img {
+    width: 45%;
+    height: 500px; /* Fixed height for banner */
+    object-fit: cover; /* Scale image to cover the entire slide area */
+    -webkit-backface-visibility: hidden; /* Improves rendering on some browsers */
+}
+
+/* Optional: Add dots for indication */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.carousel-dots button {
+    border: crimson;
+    background: #ddd;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-dots button.active {
+    background: #f10404;
+}
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Light background to complement banner colors */
+    color: #333; /* Default text color */
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styles - Banners */
+.section-style {
+    padding: 60px 30px; /* Larger padding for banner feel */
+    margin-bottom: 20px;
+    color: white; /* White text for banners */
+    text-align: center; /* Center text for banner effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly heavier shadow for banners */
+}
+
+/* Background colors for different sections */
+#about {
+    background: linear-gradient(135deg, #eb0a0a, #66bb6a); /* Green gradient banner */
+}
+
+#courses {
+    background: linear-gradient(135deg, #2196F3, #42a5f5); /* Blue gradient banner */
+}
+
+#admissions {
+    background: linear-gradient(135deg, #ff9800, #ffa726); /* Orange gradient banner */
+}
+
+/* Section heading styles */
+.section-style h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Capitalize for impact */
+    letter-spacing: 1px; /* Adds space between letters */
+    font-weight: bold;
+}
+
+/* Paragraph styles within sections */
+.section-style p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f1f1f1; /* Slightly lighter text color */
+}
+
+/* Footer styling */
+footer {
+    background-color: #222; /* Very dark background */
+    color: #ddd; /* Light gray text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Hover effect for headings */
+.section-style h3:hover {
+    color: #f1f1f1; /* Lighter text on hover */
+    transition: color 0.3s ease;
+}
+
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    .full-page-card {
-        padding: 20px; /* Adjust padding for mobile */
+    .container {
+        padding: 10px;
     }
 
-    button {
-        padding: 15px; /* Increase button padding for mobile */
+    .section-style {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
     }
 
-    .menu-button {
-        padding: 8px; /* Adjust button padding for mobile */
-        font-size: 20px; /* Smaller font size for mobile */
+    .section-style h3 {
+        font-size: 1.8rem;
+    }
+
+    .section-style p {
+        font-size: 1rem;
     }
 }

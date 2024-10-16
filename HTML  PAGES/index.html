@@ -4,42 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limkokwing University Namibia</title>
-    <link rel="stylesheet" href="styles.css">
-    
-   
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure your styles.css file is correctly linked -->
 </head>
 <body>
     <header>
-        
-        
+        <h1>Limkokwing University Namibia</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="registration.html">Register</a>
-            <a href="dashboard.html">User Dashboard</a>
-            <a href="admin.html">Admin Dashboard</a>
-            <a href="contact.html">Contact</a>
+            <a href="register.html">Register</a>
             <a href="login.html">Login</a>
         </nav>
-        <h1>Limkokwing University Namibia</h1>
     </header>
 
     <div class="banner">
         <h2>Welcome to Limkokwing University</h2>
         <p>Innovative Education for a Creative Future</p>
-        <a href="#admissions" class="btn">Apply Now</a>
+        
     </div>
 
     <div class="carousel">
         <div class="slides">
             <div class="slide">
-                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\campus_cyberjaya_billboard.jpg" alt="Limkokwing Photos">
+                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\campus_cyberjaya_billboard.jpg" alt="Limkokwing Photos"> <!-- Use relative paths -->
             </div>
             <div class="slide">
-                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\img_limkokwing.jpeg" alt="Limkokwing World Wide">
+                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\download (2).jpeg" alt="Limkokwing World Wide"> <!-- Use relative paths -->
             </div>
             <div class="slide">
-                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\download (2).jpeg" alt="Limkokwing Take a Look">
+                <img src= alt="Limkokwing Take a Look"> <!-- Use relative paths -->
+            </div>
+            <div class="slide">
+                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\images (2).jpeg" alt="Limkokwing Take a Look"> <!-- Use relative paths -->
+            </div>
+            <div class="slide">
+                <img src="C:\Users\student\Desktop\Manfried\Major-Projects-1\images\images (3).jpeg" alt="Limkokwing Take a Look"> <!-- Use relative paths -->
             </div>
         </div>
         <div class="carousel-dots">
@@ -88,56 +85,11 @@
         <section id="admissions" class="section-style">
             <h3>Admissions</h3>
             <p>Join our diverse community of students and embark on your educational journey with us.</p>
-        </section>
-
-        <!-- Registration Form Section -->
-        <section class="registration-form">
-            <h3>Registration Form</h3>
-            <form id="regForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="event">Select Event:</label>
-                <select id="event" name="event" required>
-                    <option value="event1">Event 1</option>
-                    <option value="event2">Event 2</option>
-                </select>
-                <button type="submit">Register</button>
-            </form>
-            <div id="successMessage" style="display: none; margin-top: 10px; color: green;">
-                Registration successful!
-            </div>
-        </section>
+        </section> <!-- Close the admissions section properly -->
     </div>
-    
+
     <footer>
         <p>&copy; 2024 Limkokwing University Namibia. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // Handle registration form submission
-        document.getElementById('regForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            // Retrieve form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const eventSelected = document.getElementById('event').value;
-
-            // Perform a simple validation (optional)
-            if (name && email && eventSelected) {
-                // Here, you can process the registration, e.g., send data to the server
-                
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
-
-                // Clear form fields
-                document.getElementById('regForm').reset();
-            } else {
-                alert('Please fill all fields');
-            }
-        });
-    </script>
 </body>
 </html>
