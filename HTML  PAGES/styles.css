@@ -19,7 +19,8 @@ header {
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-bottom: 5px solid #ffeb3b; /* Accent border for header */
 }
 
 /* Navigation (Taskbar) Styling */
@@ -43,6 +44,7 @@ nav a {
     padding: 10px 20px;
     border-radius: 25px; /* More rounded buttons */
     transition: background 0.3s, transform 0.2s ease-in-out;
+    font-weight: bold; /* Bold text for better visibility */
 }
 
 nav a:hover {
@@ -123,17 +125,18 @@ footer {
 }
 
 /* Button Styling */
-button {
+button, .apply-button {
     background-color: #f44336; /* Red background */
     color: white; /* Text color */
-    padding: 10px 20px;
+    padding: 12px 25px; /* Slightly larger padding for better usability */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s ease-in-out;
+    font-size: 16px; /* Increased font size for better readability */
 }
 
-button:hover {
+button:hover, .apply-button:hover {
     background-color: #c62828; /* Darker red on hover */
     transform: scale(1.05); /* Small zoom on hover */
 }
@@ -152,11 +155,11 @@ button:hover {
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s, transform 0.2s ease-in-out;
+        font-size: 16px; /* Consistent font size */
     }
     
     .apply-button:hover {
         background-color: #45a049; /* Darker green on hover */
         transform: scale(1.05); /* Small zoom on hover */
     }
-    
 }
