@@ -11,6 +11,8 @@ body {
     line-height: 1.6;
     background: linear-gradient(to right, #e0f7fa, #ffeb3b); /* Light gradient background */
     color: #333; /* Text color */
+    height: 100vh; /* Full height for the card effect */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Header Styling */
@@ -23,45 +25,20 @@ header {
     border-bottom: 5px solid #ffeb3b; /* Accent border for header */
 }
 
-/* Navigation (Taskbar) Styling */
-nav {
+/* Full-Page Card Styling */
+.full-page-card {
     display: flex;
-    flex-direction: column; /* Vertical navigation */
-    background-color: #4CAF50; /* Solid green background */
-    padding: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Depth for the taskbar */
-    position: sticky; /* Makes the nav stick to the top */
-    top: 0;
-    z-index: 1000; /* Ensure it stays above other elements */
-}
-
-/* Taskbar Links */
-nav a {
-    margin: 10px 0; /* Vertical margin for links */
-    text-decoration: none;
-    color: #fff; /* White link color */
-    background: #f57f17; /* Bright button-like background */
-    padding: 12px 20px;
-    border-radius: 25px; /* More rounded buttons */
-    transition: background 0.3s, transform 0.2s ease-in-out;
-    font-weight: bold; /* Bold text for better visibility */
-}
-
-nav a:hover {
-    background: #ff9800; /* Darker orange on hover */
-    transform: scale(1.05); /* Small zoom on hover */
-}
-
-/* Container Styling */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    background: #fff; /* White background for container */
-    border-radius: 8px; /* Rounded corners */
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+    background-color: #ffffff; /* Card background */
+    border-radius: 10px; /* Rounded corners for card */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    margin-top: 20px; /* Space above the container */
+    padding: 20px; /* Padding for the card */
+    position: relative; /* For positioning child elements */
+    overflow: hidden; /* Prevent overflow */
 }
 
 /* Form Styling */
@@ -69,6 +46,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px; /* Space between form elements */
+    width: 100%; /* Full width for form */
 }
 
 /* Input Fields */
@@ -100,6 +78,7 @@ button,
     cursor: pointer;
     transition: background 0.3s, transform 0.2s ease-in-out;
     font-size: 16px; /* Increased font size for better readability */
+    width: 100%; /* Full width buttons */
 }
 
 button:hover,
@@ -120,17 +99,12 @@ footer {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    nav {
-        padding: 20px; /* More padding for mobile */
-    }
-
-    .container {
-        padding: 10px;
+    .full-page-card {
+        padding: 15px; /* Adjust padding for mobile */
     }
 
     button,
     .apply-button {
-        width: 100%; /* Full width buttons */
-        padding: 15px; /* Increase button padding */
+        padding: 15px; /* Increase button padding for mobile */
     }
 }
