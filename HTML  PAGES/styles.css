@@ -26,7 +26,7 @@ header {
 /* Navigation (Taskbar) Styling */
 nav {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Vertical navigation */
     background-color: #4CAF50; /* Solid green background */
     padding: 10px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Depth for the taskbar */
@@ -37,11 +37,11 @@ nav {
 
 /* Taskbar Links */
 nav a {
-    margin: 0 15px;
+    margin: 10px 0; /* Vertical margin for links */
     text-decoration: none;
     color: #fff; /* White link color */
     background: #f57f17; /* Bright button-like background */
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 25px; /* More rounded buttons */
     transition: background 0.3s, transform 0.2s ease-in-out;
     font-weight: bold; /* Bold text for better visibility */
@@ -50,56 +50,6 @@ nav a {
 nav a:hover {
     background: #ff9800; /* Darker orange on hover */
     transform: scale(1.05); /* Small zoom on hover */
-}
-
-/* Hamburger menu styling for mobile */
-nav .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-nav .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: -100%;
-        width: 100%;
-        background-color: #4CAF50;
-        transition: left 0.3s;
-        z-index: 999;
-    }
-
-    nav ul li {
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    nav ul.open {
-        left: 0;
-    }
-
-    nav .hamburger {
-        display: flex;
-    }
 }
 
 /* Container Styling */
@@ -114,18 +64,34 @@ nav ul li {
     margin-top: 20px; /* Space above the container */
 }
 
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #1976d2; /* Footer background color */
-    color: white; /* Footer text color */
-    margin-top: 20px;
-    border-radius: 8px; /* Rounded corners */
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Font size for inputs */
+    width: 100%; /* Full width */
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #1976d2; /* Highlight border on focus */
 }
 
 /* Button Styling */
-button, .apply-button {
+button,
+.apply-button {
     background-color: #f44336; /* Red background */
     color: white; /* Text color */
     padding: 12px 25px; /* Slightly larger padding for better usability */
@@ -136,30 +102,35 @@ button, .apply-button {
     font-size: 16px; /* Increased font size for better readability */
 }
 
-button:hover, .apply-button:hover {
+button:hover,
+.apply-button:hover {
     background-color: #c62828; /* Darker red on hover */
     transform: scale(1.05); /* Small zoom on hover */
 }
 
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1976d2; /* Footer background color */
+    color: white; /* Footer text color */
+    margin-top: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    nav {
+        padding: 20px; /* More padding for mobile */
+    }
+
     .container {
         padding: 10px;
     }
 
+    button,
     .apply-button {
-        background-color: #4CAF50; /* Green background */
-        color: white; /* White text */
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s ease-in-out;
-        font-size: 16px; /* Consistent font size */
-    }
-    
-    .apply-button:hover {
-        background-color: #45a049; /* Darker green on hover */
-        transform: scale(1.05); /* Small zoom on hover */
+        width: 100%; /* Full width buttons */
+        padding: 15px; /* Increase button padding */
     }
 }
