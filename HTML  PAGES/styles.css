@@ -13,6 +13,7 @@ body {
     color: #333; /* Text color */
     height: 100vh; /* Full height for the card effect */
     overflow: hidden; /* Prevent scrolling */
+    position: relative; /* Position relative for the menu button */
 }
 
 /* Header Styling */
@@ -26,6 +27,26 @@ header {
     backdrop-filter: blur(10px); /* Blur effect */
 }
 
+/* Menu Button Styling */
+.menu-button {
+    position: absolute; /* Position it at the top right corner */
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #333; /* Text color */
+    padding: 10px 15px; /* Padding for button */
+    border: none;
+    border-radius: 50%; /* Round button */
+    font-size: 24px; /* Font size for button */
+    cursor: pointer; /* Pointer on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background 0.3s; /* Transition effect */
+}
+
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.8); /* Change background on hover */
+}
+
 /* Full-Page Card Styling */
 .full-page-card {
     display: flex;
@@ -33,7 +54,7 @@ header {
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
     width: 100%; /* Full width */
-    height: 100vh; /* Full height to fill viewport */
+    height: calc(100vh - 80px); /* Full height minus header height */
     background-color: #ffffff; /* Card background */
     border-radius: 10px; /* Rounded corners for card */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
@@ -70,8 +91,7 @@ input[type="password"]:focus {
 }
 
 /* Button Styling */
-button,
-.apply-button {
+button {
     background-color: #ff4081; /* Pink background */
     color: white; /* Text color */
     padding: 15px 30px; /* Slightly larger padding for better usability */
@@ -83,8 +103,7 @@ button,
     width: 100%; /* Full width buttons */
 }
 
-button:hover,
-.apply-button:hover {
+button:hover {
     background-color: #c60055; /* Darker pink on hover */
     transform: scale(1.05); /* Small zoom on hover */
 }
@@ -108,8 +127,12 @@ footer {
         padding: 20px; /* Adjust padding for mobile */
     }
 
-    button,
-    .apply-button {
+    button {
         padding: 15px; /* Increase button padding for mobile */
+    }
+
+    .menu-button {
+        padding: 8px; /* Adjust button padding for mobile */
+        font-size: 20px; /* Smaller font size for mobile */
     }
 }
