@@ -136,3 +136,152 @@ footer {
         font-size: 20px; /* Smaller font size for mobile */
     }
 }
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to right, #ff6f61, #6a82fb); /* Bright gradient background */
+    color: #333; /* Text color */
+    height: 100vh; /* Full height for the card effect */
+    overflow: hidden; /* Prevent scrolling */
+    position: relative; /* Position relative for the menu button */
+}
+
+/* Header Styling */
+header {
+    background: rgba(25, 118, 210, 0.8); /* Semi-transparent header background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border-bottom: 5px solid #ffeb3b; /* Accent border for header */
+    backdrop-filter: blur(10px); /* Blur effect */
+}
+
+/* Navigation Styling */
+nav {
+    margin-top: 10px; /* Spacing above the navigation */
+}
+
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the navigation items */
+    padding: 0; /* Remove padding */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Space between navigation items */
+}
+
+.nav-links a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 16px; /* Font size for links */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.nav-links a:hover {
+    color: #ffeb3b; /* Change color on hover */
+}
+
+/* Full-Page Card Styling */
+.full-page-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Full width */
+    height: calc(100vh - 80px); /* Full height minus header height */
+    background-color: #ffffff; /* Card background */
+    border-radius: 10px; /* Rounded corners for card */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    padding: 30px; /* Padding for the card */
+    position: relative; /* For positioning child elements */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form elements */
+    width: 100%; /* Full width for form */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 15px;
+    border: 2px solid #4CAF50; /* Green border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+    width: 100%; /* Full width */
+    transition: border 0.3s, box-shadow 0.3s; /* Transition effects */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #1976d2; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5); /* Add glow effect */
+}
+
+/* Button Styling */
+button {
+    background-color: #ff4081; /* Pink background */
+    color: white; /* Text color */
+    padding: 15px 30px; /* Slightly larger padding for better usability */
+    border: none;
+    border-radius: 25px; /* More rounded buttons */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out; /* Transition effects */
+    font-size: 16px; /* Increased font size for better readability */
+    width: 100%; /* Full width buttons */
+}
+
+button:hover {
+    background-color: #c60055; /* Darker pink on hover */
+    transform: scale(1.05); /* Small zoom on hover */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(25, 118, 210, 0.8); /* Semi-transparent footer background */
+    color: white; /* Footer text color */
+    position: absolute; /* Position footer at the bottom */
+    bottom: 0; /* Align to bottom */
+    left: 0; /* Align to left */
+    right: 0; /* Align to right */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .full-page-card {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    button {
+        padding: 15px; /* Increase button padding for mobile */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically on mobile */
+        align-items: center; /* Center links */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Space between navigation items */
+    }
+}
