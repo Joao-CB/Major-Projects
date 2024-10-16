@@ -198,4 +198,33 @@ button:hover {
     section h3 {
         font-size: 1.6rem;
     }
+
+        /* Styling for the call button */
+        .call-button, .whatsapp-button {
+            background-color: #4CAF50; /* Green background for call button */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 15px; /* Padding for the button */
+            text-align: center; /* Center text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Allows setting width and height */
+            font-size: 16px; /* Font size */
+            margin-left: 10px; /* Space between the number and the button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth background color change */
+        }
+
+        .call-button:hover, .whatsapp-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Optional: Different color for WhatsApp button */
+        .whatsapp-button {
+            background-color: #25D366; /* WhatsApp green */
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #1DAF5D; /* Darker WhatsApp green on hover */
+        }
 }
