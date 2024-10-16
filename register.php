@@ -5,13 +5,14 @@ $conn = new mysqli("localhost", "username", "password", "database");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+    
 }
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $event_id = $_POST['event_id'];
     $name = $_POST['name'];
-    $email = $_POST['email'];
+    $email = $_POST['email']; 
 
     // Insert registration
     $stmt = $conn->prepare("INSERT INTO registrations (event_id, name, email) VALUES (?, ?, ?)");
