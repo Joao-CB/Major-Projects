@@ -12,7 +12,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="events.html">Events</a>
-            <a href="registration.html">Register</a>
+            <a href="registration.php">Register</a>
             <a href="dashboard.html">User Dashboard</a>
             <a href="admin.html">Admin Dashboard</a>
             <a href="contact.html">Contact</a>
@@ -20,40 +20,38 @@
     </header>
 
     <div class="container">
-        <form id="registrationForm">
+        <?php
+        // Check if the form has been submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Sanitize and retrieve form inputs
+            $name = htmlspecialchars($_POST['name']);
+            $email = htmlspecialchars($_POST['email']);
+            $event = htmlspecialchars($_POST['event']);
+
+            // Display a success message
+            echo "<div style='margin-top: 20px; color: green;'>
+                    Thank you, $name! You have successfully registered for $event.
+                  </div>";
+        }
+        ?>
+
+        <!-- Registration form -->
+        <form action="registration.php" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             <label for="event">Select Event:</label>
             <select id="event" name="event" required>
-                <option value="event1">Event 1</option>
-                <option value="event2">Event 2</option>
+                <option value="Event 1">Event 1</option>
+                <option value="Event 2">Event 2</option>
             </select>
             <button type="submit">Register</button>
         </form>
-        <div id="message" style="display:none; margin-top: 20px; color: green;"></div> <!-- Success message -->
     </div>
 
     <footer>
         <p>&copy; 2024 Events Inc.</p>
     </footer>
-
-    <script>
-        // JavaScript to handle form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Retrieve form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const eventSelected = document.getElementById('event').value;
-
-            // Display success message
-            const messageDiv = document.getElementById('message');
-            messageDiv.style.display = 'block';
-            messageDiv.textContent = `Thank you, ${name}! You have successfully registered for ${eventSelected}.`;
-        });
-    </script>
 </body>
 </html>
