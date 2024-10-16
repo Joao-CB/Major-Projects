@@ -28,10 +28,10 @@
 </html>
 <?php
 // Database connection
-$host = 'localhost';  // Change as per your setup
-$dbname = 'your_database_name';  // Change to your database name
-$username = 'root';  // Your MySQL username
-$password = '';  // Your MySQL password
+$host = 'localhost'; 
+$dbname = 'your_database_name';  
+$username = 'root';  
+$password = ''; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
