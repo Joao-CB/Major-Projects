@@ -27,39 +27,3 @@
 </body>
 </html>
 <?php
-// Database connection
-$host = 'localhost';  // Change as per your setup
-$dbname = 'your_database_name';  // Change to your database name
-$username = 'root';  // Your MySQL username
-$password = '';  // Your MySQL password
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-
-    // Prepare SQL statement
-    $stmt = $pdo->prepare("INSERT INTO Contacts (Name, Email, Message, SubmissionDate) VALUES (:name, :email, :message, NOW())");
-
-    // Bind parameters
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':message', $message);
-
-    // Execute the query
-    if ($stmt->execute()) {
-        // Redirect to the form with a success message
-        header("Location: contact.php?success=true");
-        exit;
-    } else {
-        echo "There was an error submitting your message. Please try again.";
-    }
-}
