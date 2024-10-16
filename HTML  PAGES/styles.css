@@ -9,7 +9,7 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background: linear-gradient(to right, #e0f7fa, #ffeb3b); /* Light gradient background */
+    background: linear-gradient(to right, #ff6f61, #6a82fb); /* Bright gradient background */
     color: #333; /* Text color */
     height: 100vh; /* Full height for the card effect */
     overflow: hidden; /* Prevent scrolling */
@@ -17,12 +17,13 @@ body {
 
 /* Header Styling */
 header {
-    background: #1976d2; /* Header background color */
+    background: rgba(25, 118, 210, 0.8); /* Semi-transparent header background */
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     border-bottom: 5px solid #ffeb3b; /* Accent border for header */
+    backdrop-filter: blur(10px); /* Blur effect */
 }
 
 /* Full-Page Card Styling */
@@ -35,8 +36,8 @@ header {
     height: calc(100vh - 80px); /* Full height minus header height */
     background-color: #ffffff; /* Card background */
     border-radius: 10px; /* Rounded corners for card */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    padding: 20px; /* Padding for the card */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    padding: 30px; /* Padding for the card */
     position: relative; /* For positioning child elements */
     overflow: hidden; /* Prevent overflow */
 }
@@ -45,7 +46,7 @@ header {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between form elements */
+    gap: 20px; /* Space between form elements */
     width: 100%; /* Full width for form */
 }
 
@@ -53,37 +54,38 @@ form {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 15px;
+    border: 2px solid #4CAF50; /* Green border */
+    border-radius: 8px; /* Rounded corners */
     font-size: 16px; /* Font size for inputs */
     width: 100%; /* Full width */
-    transition: border 0.3s;
+    transition: border 0.3s, box-shadow 0.3s; /* Transition effects */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: #1976d2; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5); /* Add glow effect */
 }
 
 /* Button Styling */
 button,
 .apply-button {
-    background-color: #f44336; /* Red background */
+    background-color: #ff4081; /* Pink background */
     color: white; /* Text color */
-    padding: 12px 25px; /* Slightly larger padding for better usability */
+    padding: 15px 30px; /* Slightly larger padding for better usability */
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* More rounded buttons */
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease-in-out;
+    transition: background 0.3s, transform 0.2s ease-in-out; /* Transition effects */
     font-size: 16px; /* Increased font size for better readability */
     width: 100%; /* Full width buttons */
 }
 
 button:hover,
 .apply-button:hover {
-    background-color: #c62828; /* Darker red on hover */
+    background-color: #c60055; /* Darker pink on hover */
     transform: scale(1.05); /* Small zoom on hover */
 }
 
@@ -91,20 +93,19 @@ button:hover,
 footer {
     text-align: center;
     padding: 15px;
-    background: #1976d2; /* Footer background color */
+    background: rgba(25, 118, 210, 0.8); /* Semi-transparent footer background */
     color: white; /* Footer text color */
     position: absolute; /* Position footer at the bottom */
     bottom: 0; /* Align to bottom */
     left: 0; /* Align to left */
     right: 0; /* Align to right */
-    margin-top: 20px; /* Space above footer */
     border-radius: 8px; /* Rounded corners */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .full-page-card {
-        padding: 15px; /* Adjust padding for mobile */
+        padding: 20px; /* Adjust padding for mobile */
     }
 
     button,
