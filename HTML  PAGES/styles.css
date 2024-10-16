@@ -33,7 +33,7 @@ header {
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
     width: 100%; /* Full width */
-    height: calc(100vh - 80px); /* Full height minus header height */
+    height: 100vh; /* Full height to fill viewport */
     background-color: #ffffff; /* Card background */
     border-radius: 10px; /* Rounded corners for card */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
