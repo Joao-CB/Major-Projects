@@ -1,33 +1,28 @@
 <?php
-$servername = "localhost";
-$username = "root"; // your database username
-$password = ""; // your database password
-$dbname = "my_database";
+// Connect to the database
+$conn = new mysqli('localhost', 'username', 'password', 'database_name');
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    // Hash the password
-    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $password_hash);
+    // Prepare the SQL statement to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $email, $password);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
-        // Redirect to login or another page
-        header("Location: login.html");
+        // Redirect on successful registration
+        header('Location: login.html');
+        exit(); // Always call exit after a header redirection
     } else {
-        echo "Error: " . $stmt->error;
+        // Handle registration error
+        echo "Registration failed. Please try again.";
     }
 
     $stmt->close();
