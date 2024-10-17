@@ -25,8 +25,9 @@ $result = $conn->query($sql);
     <?php while($row = $result->fetch_assoc()): ?>
         <div class="event">
             <img src="uploads/<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>" width="200">
-            <h2><?php echo $row['title']; ?></h2>
+            <h2><?php echo $row['event_name']; ?></h2>
             <p><?php echo $row['description']; ?></p>
+            <p><?php echo $row['created_at']; ?></p>
             <p>Date: <?php echo $row['event_date']; ?></p>
             <p>Location: <?php echo $row['location']; ?></p>
             <a href="register.php?event_id=<?php echo $row['id']; ?>">Register</a>
