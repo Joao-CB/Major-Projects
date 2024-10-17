@@ -333,4 +333,49 @@ footer p {
     .section-style p {
         font-size: 1rem;
     }
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        padding: 10px;
+        background-color: #5cb85c;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #4cae4c;
+    }
+    .forgot-password {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .register {
+        text-align: center;
+        margin-top: 10px;
+    }
 }
