@@ -29,7 +29,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "verner"; // Replace with your actual database name
+$dbname = "major project database"; // Replace with your actual database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
