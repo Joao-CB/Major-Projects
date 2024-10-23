@@ -25,18 +25,6 @@
 </body>
 </html>
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "major project database"; // Replace with your actual database name
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // Get form data
 $contact_name = $_POST['contact_name'];
