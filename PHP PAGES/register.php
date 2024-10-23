@@ -1,32 +1,69 @@
 <?php
-// Connect to the database
-$conn = new mysqli('localhost', 'username', 'password', 'database_name');
+// Initialize message variable
+$message = '';
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Process the form when submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
+    $user_id = $_POST['user_id'];
+    $event_id = $_POST['event_id'];
 
-    // Prepare the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $password);
+    // Create a connection to the MySQL database
+    $conn = new mysqli('localhost', 'root', '', 'schoolDB'); // Update with your DB credentials
 
-    if ($stmt->execute()) {
-        // Redirect on successful registration
-        header('Location: login.html');
-        exit(); // Always call exit after a header redirection
-    } else {
-        // Handle registration error
-        echo "Registration failed. Please try again.";
+    // Check for connection error
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt->close();
-}
+    // Escape user input to avoid SQL injection
+    $user_id = $conn->real_escape_string($user_id);
+    $event_id = $conn->real_escape_string($event_id);
 
-$conn->close();
+    // SQL query to insert registration data
+    $sql = "INSERT INTO registrations (user_id, event_id) VALUES ('$user_id', '$event_id')";
+
+    // Execute the query and check for success
+    if ($conn->query($sql) === TRUE) {
+        $message = "Registration successful!";
+    } else {
+        $message = "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close the connection
+    $conn->close();
+}
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+    <h1>Event Registration</h1>
+    <nav>
+        <a href="add_student.php">Add Student</a> |
+        <a href="view_students.php">View Students</a> |
+        <a href="search.php">Search Students</a>
+    </nav>
+
+    <!-- Centered Form -->
+    <div class="form-container">
+        <div class="form-box">
+            <!-- Display a success or error message -->
+            <?php if (!empty($message)): ?>
+                <p class="message"><?php echo $message; ?></p>
+            <?php endif; ?>
+
+            <!-- Form to register for an event -->
+            <form action="register_event.php" method="POST"> <!-- Change the action to the correct file name -->
+                User ID: <input type="number" name="user_id" required><br>
+                Event ID: <input type="number" name="event_id" required><br>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
