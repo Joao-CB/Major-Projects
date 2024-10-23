@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $event_id = $_POST['event_id'];
 
     // Create a connection to the MySQL database
-    $conn = new mysqli('localhost', 'root', '', 'schoolDB'); // Update with your DB credentials
+    $conn = new mysqli('localhost', 'root', '', 'major_project_database'); // Update with your DB credentials
 
     // Check for connection error
     if ($conn->connect_error) {
