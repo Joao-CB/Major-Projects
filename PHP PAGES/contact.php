@@ -8,58 +8,54 @@
 </head>
 <body>
     <h2>Contact Us</h2>
-    <form action="contact.php" method="POST">
+    <form action="process_contact.php" method="POST">
         <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="contact_name" required><br><br>
 
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="contact_email"><br><br>
 
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="contact_phone"><br><br>
 
+        <input type="hidden" name="user_id" value="1"> <!-- assuming logged-in user with id 1 -->
         <input type="submit" value="Submit">
     </form>
-
-    <?php if (isset($_GET['success'])): ?>
-        <p style="color:green;">Your message has been successfully submitted!</p>
-    <?php endif; ?>
 </body>
 </html>
 <?php
 // Database connection
-$host = 'localhost';  // Change as per your setup
-$dbname = 'verner';  // Change to your database name
-$username = 'root';  // Your MySQL username
-$password = '';  // Your MySQL password
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "verner"; // Replace with your actual database name
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
+// Get form data
+$contact_name = $_POST['contact_name'];
+$contact_email = $_POST['contact_email'];
+$contact_phone = $_POST['contact_phone'];
+$user_id = isset($_POST['user_id']) ? $_POST['user_id'] : NULL;
 
-    // Prepare SQL statement
-    $stmt = $pdo->prepare("INSERT INTO Contacts (Name, Email, Message, SubmissionDate) VALUES (:name, :email, :message, NOW())");
+// Insert into database
+$sql = "INSERT INTO contacts (user_id, contact_name, contact_email, contact_phone, created_at)
+        VALUES (?, ?, ?, ?, NOW())";
 
-    // Bind parameters
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':message', $message);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("isss", $user_id, $contact_name, $contact_email, $contact_phone);
 
-    // Execute the query
-    if ($stmt->execute()) {
-        // Redirect to the form with a success message
-        header("Location: contact.php?success=true");
-        exit;
-    } else {
-        echo "There was an error submitting your message. Please try again.";
-    }
+if ($stmt->execute()) {
+    echo "New contact created successfully!";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$stmt->close();
+$conn->close();
+?>
