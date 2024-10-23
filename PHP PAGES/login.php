@@ -1,46 +1,37 @@
 <?php
-session_start();
+$message = '';
 
-$servername = "localhost";
-$username = "root"; // your database username
-$password = ""; // your database password
-$dbname = "my_database";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Process the login form when submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepare and execute statement
-    $stmt = $conn->prepare("SELECT password_hash FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
-    
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($password_hash);
-        $stmt->fetch();
+    // Create a connection to the MySQL database
+    $conn = new mysqli('localhost', 'root', 'major_project_database', '); // Update with your DB credentials
 
-        // Verify password
-        if (password_verify($password, $password_hash)) {
-            $_SESSION['username'] = $username;
-            echo "Login successful! Welcome, " . htmlspecialchars($username);
-            // Redirect to a dashboard or another page
-            // header("Location: dashboard.php");
-        } else {
-            echo "Invalid credentials.";
-        }
-    } else {
-        echo "No user found with that username.";
+    // Check for connection error
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt->close();
-}
+    // Escape user input to avoid SQL injection
+    $username = $conn->real_escape_string($username);
+    $password = $conn->real_escape_string($password);
 
-$conn->close();
+    // SQL query to check user credentials
+    $sql = "SELECT * FROM Users WHERE Username='$username' AND Password='$password'"; // Assuming you have a Users table with Username and Password columns
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // User found, redirect to the registration page or any other page
+        header("Location: register.php");
+        exit();
+    } else {
+        $message = "Invalid username or password.";
+    }
+
+    // Close the connection
+    $conn->close();
+}
 ?>
