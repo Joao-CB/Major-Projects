@@ -1,5 +1,4 @@
 <?php
-// Initialize message variable
 $message = '';
 
 // Process the form when submitted
@@ -20,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $event_id = $conn->real_escape_string($event_id);
 
     // SQL query to insert registration data
-    $sql = "INSERT INTO registrations (user_id, event_id) VALUES ('$user_id', '$event_id')";
+    $sql = "INSERT INTO Registrations (UserID, EventID, RegistrationDate) VALUES ('$user_id', '$event_id', NOW())";
 
     // Execute the query and check for success
     if ($conn->query($sql) === TRUE) {
@@ -34,36 +33,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Event Registration</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    
-</head>
-<body>
-    <h1>Event Registration</h1>
-    <nav>
-        <a href="add_student.php">Add Student</a> |
-        <a href="view_students.php">View Students</a> |
-        <a href="search.php">Search Students</a>
-    </nav>
-
-    <!-- Centered Form -->
-    <div class="form-container">
-        <div class="form-box">
-            <!-- Display a success or error message -->
-            <?php if (!empty($message)): ?>
-                <p class="message"><?php echo $message; ?></p>
-            <?php endif; ?>
-
-            <!-- Form to register for an event -->
-            <form action="register_event.php" method="POST"> <!-- Change the action to the correct file name -->
-                User ID: <input type="number" name="user_id" required><br>
-                Event ID: <input type="number" name="event_id" required><br>
-                <input type="submit" value="Register">
-            </form>
-        </div>
-    </div>
-</body>
-</html>

@@ -1,27 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Login</title>
-    
+    <title>User Login</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+   
 </head>
 <body>
-    <form action="login.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Login</button>
-        <div class="forgot-password">
-            <a href="forgot-password.php">Forgot Password?</a>
+    <h1>User Login</h1>
+    <div class="form-container">
+        <div class="form-box">
+            <?php if (!empty($message)): ?>
+                <p class="message"><?php echo $message; ?></p>
+            <?php endif; ?>
+            <form action="login.php" method="POST">
+                Username: <input type="text" name="username" required><br>
+                Password: <input type="password" name="password" required><br>
+                <input type="submit" value="Login">
+            </form>
         </div>
-        <div class="register">
-            <p>Don't have an account? <a href="register.html">Register here</a>.</p>
-        </div>
-    </form>
+    </div>
 </body>
 </html>
