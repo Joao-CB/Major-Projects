@@ -45,6 +45,5 @@ if ($stmt->execute()) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$stmt->close();
-$conn->close();
+
 ?>

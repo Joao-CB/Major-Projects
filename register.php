@@ -28,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    // Close the connection
-    $conn->close();
+
 }
 ?>
 
